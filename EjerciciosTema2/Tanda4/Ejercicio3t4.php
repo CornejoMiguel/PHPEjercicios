@@ -22,7 +22,7 @@
         $cantidad++;
         ?>
         <form class="" action="Ejercicio3t4.php" method="post">
-        Número : <input type="number" name="numero" value="">
+        Número : <input type="number" autofocus name="numero" value="">
         <input type="hidden" name="cantidad" value="<?php echo $cantidad?>">
         <input type="hidden" name="texto" value="<?php echo $texto . " " . $numero ?>">
         <input type="submit" name="Enviar" value="Enviar">
@@ -84,7 +84,7 @@
   ?>
 
     <form class="" action="Ejercicio3t4.php" method="post">
-    Número : <input type="number" name="numero" value="">
+    Número : <input type="number" autofocus name="numero" value="">
     <input type="hidden" name="cantidad" value="0">
     <input type="hidden" name="texto" value="">
     <input type="submit" name="Enviar" value="Enviar">
