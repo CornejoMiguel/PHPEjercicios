@@ -48,7 +48,7 @@
 
       // Muestra el array original
         // Índice
-        /*echo "Array original:<br>";
+        echo "Array original:<br>";
         echo "<table><tr>";
         for ($i = 0; $i < 10; $i++) {
           echo "<td>$i</td>";
@@ -57,38 +57,35 @@
 
         // Contenido
         for ($i = 0; $i < 10; $i++) {
-          echo "<td>".$numero[$i]."</td>";
+          echo "<td>".$array[$i]."</td>";
         }
-        echo "</tr></table>";*/
+        echo "</tr></table>";
 
         //Primos
 
-        for ($i=0; $i < count($array) ; $i++)
-        {
-          $j = $array[$i];
-          $k = 1;
-          $esPrimoC = 0;
-          echo  "el numero : ". $j . "<br/>";
-          while ($k <= $j)
-          {
-            if(($k % $j) == 0)
+        for ($i=0; $i < count($array); $i++) {
+          $numero = $array[$i];
+          $primo = 0;
+
+          for ($j=1; $j <= $numero ; $j++) {
+            if($numero % $j == 0)
             {
-              $esPrimoC++;
+              $primo++;
             }
-            $k++;
           }
-            echo "contador del Nº PRIMO : " . $esPrimoC . "<br/>";
-          }
-          if($esPrimoC == 2)
+
+          if($primo == 2)
           {
-            array_push($arrayP,$j);
+            array_push($arrayP,$numero);
           }
           else
           {
-            array_push($arrayNoP,$j);
+            array_push($arrayNoP,$numero);
           }
 
-        array_merge($arrayP,$arrayNoP);
+        }
+
+        $array2 = array_merge($arrayP,$arrayNoP);
         print_r($arrayP);
         print_r($array2);
 

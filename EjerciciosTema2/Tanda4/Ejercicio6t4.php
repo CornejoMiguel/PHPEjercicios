@@ -14,24 +14,16 @@
     $cantidad = $_POST['cantidad'];
     $array = [];
     $texto = $_POST['texto'];
+    $texto = $texto . " ". strval($numero);
 
-    if($cantidad == 7)
-    {
-        $texto = $texto . strval($numero);
-    }
-    else
-    {
-      $texto = $texto . strval($numero) . ",";
-    }
-
-    if($cantidad < 7)
+    if($cantidad <= 8)
     {
       $cantidad++;
 ?>
 <form class="" action="Ejercicio6t4.php" method="post">
-  Número : <input type="number" autofocus name="numero" value="">
-  <input type="hidden" name="cantidad" value="<?php echo $cantidad ?>">
-  <input type="hidden" name="texto" value="<?php echo $texto ?>">
+  Número : <input type="number" name="numero" value="">
+  <input type="hidden" name="cantidad" value="<?php echo $cantidad?>">
+  <input type="hidden" name="texto" value="<?php echo $texto?>">
   <input type="submit" name="Enviar" value="Enviar">
 </form>
 
@@ -39,21 +31,16 @@
     }
     else
     {
-      $array = explode(",",$texto);
-      print_r($array);
-      $array2 = [];
-      for ($i=0; $i <count($array) ; $i++) {
-       array_push($array2,intval($array[$i]));
-      }
-      for ($i=0; $i < count($array2); $i++)
+      $array = explode(" ",$texto);
+      for ($i=0; $i < count($array); $i++)
       {
-        if($array2[$i] % 2 == 0)
+        if($array[$i] % 2 == 0)
         {
-          echo "<font color='red'>".$array2[$i]."</font><br/>";
+          echo "<font color='red'>".$array[$i]."</font><br/>";
         }
         else
         {
-          echo "<font color='green'>".$array2[$i]."</font><br/>";
+          echo "<font color='green'>".$array[$i]."</font><br/>";
         }
       }
     }
@@ -63,8 +50,8 @@
 ?>
 
   <form class="" action="Ejercicio6t4.php" method="post">
-    Número : <input type="number" autofocus name="numero" value="">
-    <input type="hidden" name="cantidad" value="0">
+    Número : <input type="number" name="numero" value="">
+    <input type="hidden" name="cantidad" value="1">
     <input type="hidden" name="texto" value="">
     <input type="submit" name="Enviar" value="Enviar">
   </form>
